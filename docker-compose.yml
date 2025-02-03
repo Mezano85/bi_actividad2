@@ -1,0 +1,18 @@
+services:
+  dremio:
+    image: dremio/dremio-oss:25.2.0
+    container_name: dremio
+    ports:
+      - "9047:9047"    # Interfaz web de Dremio
+      - "31010:31010"  # Conexiones JDBC/ODBC y otras
+      - "45678:45678"  # Coordinación entre nodos
+    env_file:
+      - .env
+    volumes:
+      - dremio_data:/opt/dremio/data
+      - local_files:/opt/dremio/local_files
+    restart: unless-stopped
+
+volumes:
+  dremio_data:
+  local_files:
