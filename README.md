@@ -66,10 +66,4 @@ Desde allí podrás configurar y administrar Dremio.
 - Variables de entorno:
   Ajusta las variables en el archivo .env según la memoria y recursos disponibles en tu máquina.
 
-## Contribuciones
 
-Las contribuciones son bienvenidas. Si deseas mejorar la configuración o agregar nuevas funcionalidades, por favor envía un pull request o abre un issue.
-
-## Licencia
-
-Este proyecto se distribuye bajo la licencia Apache-2.0.
