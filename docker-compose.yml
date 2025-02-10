@@ -13,6 +13,20 @@ services:
       - local_files:/opt/dremio/local_files
     restart: unless-stopped
 
+  jupyter:
+    image: jupyter/minimal-notebook:python-3.11
+    container_name: jupyter
+    ports:
+      - "8888:8888"
+    env_file:
+      - .env
+    volumes:
+      - ./notebooks:/home/jovyan/work
+      - ./local_files:/home/jovyan/data
+      - ./requirements.txt:/home/jovyan/requirements.txt
+    command: bash -c "pip install -r requirements.txt && start-notebook.sh --NotebookApp.token=${JUPYTER_TOKEN}"
+    restart: unless-stopped
+
 volumes:
   dremio_data:
   local_files:
